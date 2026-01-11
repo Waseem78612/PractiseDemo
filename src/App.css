@@ -1,0 +1,67 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+main * {
+  margin: 0;
+  padding: 0;
+}
+main {
+  width: 400px;
+  min-height: 200px;
+  max-height: max-content;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 0;
+  background-color: aquamarine;
+}
+.fruitImageContainer {
+  height: 100%;
+  background-color: green;
+}
+.fruitInfo {
+  width: 50%;
+  height: 100%;
+  background-color: darkcyan;
+}
+.counterContainer {
+  min-height: 250px;
+  max-height: max-content;
+  width: 250px;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  background-color: rgb(81, 6, 91);
+}
+.counter {
+  height: 180px;
+  width: 180px;
+  position: relative;
+  border-radius: 50%;
+  left: 34px;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(93, 93, 93);
+}
+.plusBtn,
+.subBtn {
+  border: none;
+  padding: 20px;
+  background-color: rgb(6, 65, 6);
+  color: rgb(146, 144, 144);
+  font-size: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: -150px;
+  margin: 30px;
+}
+.subBtn {
+  background-color: rgb(89, 13, 13);
+}
