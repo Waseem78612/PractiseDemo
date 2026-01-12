@@ -65,3 +65,46 @@ main {
 .subBtn {
   background-color: rgb(89, 13, 13);
 }
+.CardContainer {
+  margin: 20px 0 0 500px;
+  text-align: center;
+  width: 250px;
+  min-height: 380px;
+  max-height: max-content;
+  background-color: darkolivegreen;
+}
+.CardContainer * {
+  margin: 0;
+  padding: 0;
+}
+.ImageSection img {
+  height: 190px;
+  width: 190px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.userName {
+  text-align: left;
+  font-family: sans-serif;
+  color: black;
+  margin: 10px 0 0 10px;
+}
+.userName * {
+  margin: 3px;
+}
+.StarContainer {
+  text-align: left;
+  padding-left: 30px;
+}
+.Star {
+  color: white;
+}
+.userDetails {
+  margin: 10px 0 0 15px;
+  text-align: left;
+}
+.userDetails * {
+  margin: 3px;
+  font-size: 20px;
+  text-align: left;
+}

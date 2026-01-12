@@ -4,6 +4,8 @@ import img1 from "./Components/images/Almonds.jpg";
 import img2 from "./Components/images/Cocunut.jpg";
 import Header from "./Components/Header";
 import Counter from "./Components/Counter";
+import Avatar from "./Components/Avatar";
+import SignUp from "./Components/SignUp";
 function App() {
   const images = [img1, img2];
   const [Ingredients, setIngredents] = React.useState([]);
@@ -21,9 +23,7 @@ function App() {
       allFavouriteThings[preFavThings.length],
     ]);
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  function addIngredient(formData) {
     const newIngredient = formData.get("ingredent");
     setIngredents((prevIngredients) => [...prevIngredients, newIngredient]);
     console.log(...newIngredient, newIngredient);
@@ -34,23 +34,20 @@ function App() {
       <button onClick={addFavouriteThing}>AddItem</button>
       <section aria-live="polito">{thingsElement}</section>
 
-      <form onSubmit={handleSubmit}>
+      <form action={addIngredient}>
         <input type="text" name="ingredent" id="" />
         <button className="addBtn">Add Ingredent</button>
       </form>
       <ul>{IngredentsListItem}</ul>
       <div className="gallery">
         {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Gallery ${index + 1}`}
-            className="gallery-image"
-          />
+          <img key={index} src={img} alt={`Gallery ${index + 1}`} />
         ))}
       </div>
 
       <Counter />
+      <Avatar />
+      <SignUp />
     </>
   );
 }
