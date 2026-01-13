@@ -1,9 +1,12 @@
 export default function SignUp() {
   function SignUp(formData) {
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const employ = formData.get("employ");
-    console.log({ email, password, employ });
+    const data = Object.fromEntries(formData);
+    const ditarydata = formData.getAll("ditaryRestrictions");
+    const allData = {
+      ...data,
+      ditarydata,
+    };
+    console.log(allData);
   }
   return (
     <>
@@ -13,10 +16,11 @@ export default function SignUp() {
         style={{
           backgroundColor: "darkgrey",
           margin: "auto",
-
-          height: "300px",
+          minHeight: "300px",
+          maxHeight: "maxContent",
           width: "400px",
           paddingTop: "30px",
+          paddingBottom: "30px",
           textAlign: "center",
         }}
       >
@@ -66,20 +70,88 @@ export default function SignUp() {
           <legend>Employment Status :</legend>
           <label htmlFor="Unemployed">
             Unemployed
-            <input type="radio" name="employ" id="Unemployed" />
+            <input
+              type="radio"
+              name="employ"
+              id="Unemployed"
+              value="unemployed"
+            />
           </label>
           <br />
           <label htmlFor="partTime">
             Part-Time
-            <input type="radio" name="employ" id="partTime" />
+            <input type="radio" name="employ" id="partTime" value="part-time" />
           </label>
           <br />
           <label htmlFor="fullTime">
             full-Time
-            <input type="radio" name="employ" id="fullTime" />
+            <input
+              type="radio"
+              name="employ"
+              id="fullTime"
+              value="full-time"
+              defaultChecked={true}
+            />
           </label>
           <br />
         </fieldset>
+
+        <fieldset
+          style={{
+            backgroundColor: "darkcyan",
+            margin: "5px",
+          }}
+        >
+          <legend>Ditary Restrictions :</legend>
+          <label htmlFor="Unemployed">
+            Unemployed
+            <input
+              type="checkbox"
+              name="ditaryRestrictions"
+              id="Unemployed"
+              value="Numan"
+            />
+          </label>
+          <br />
+          <label htmlFor="partTime">
+            Part-Time
+            <input
+              type="checkbox"
+              name="ditaryRestrictions"
+              id="partTime"
+              value="ali"
+            />
+          </label>
+          <br />
+          <label htmlFor="fullTime">
+            full-Time
+            <input
+              type="checkbox"
+              name="ditaryRestrictions"
+              id="fullTime"
+              value="waseem"
+              defaultChecked={true}
+            />
+          </label>
+          <br />
+        </fieldset>
+        <br />
+        <label htmlFor="favColor" style={{ color: "black" }}>
+          You Can Chose Your favourite color !
+        </label>
+        <br />
+        <br />
+        <select name="favColor" id="favColor" defaultValue="red" required>
+          <option value="" disabled>
+            --Chose Your Color--
+          </option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="indigo">Indego</option>
+          <option value="aqua">Aqua</option>
+        </select>
+        <br />
         <button
           type="submit"
           style={{

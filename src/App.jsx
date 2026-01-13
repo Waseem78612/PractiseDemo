@@ -1,12 +1,28 @@
 import React, { useState } from "react";
 import "./App.css";
+
 import img1 from "./Components/images/Almonds.jpg";
 import img2 from "./Components/images/Cocunut.jpg";
 import Header from "./Components/Header";
 import Counter from "./Components/Counter";
 import Avatar from "./Components/Avatar";
 import SignUp from "./Components/SignUp";
+import UnreadMessage from "./Components/UnreadMessage";
+import Joke from "./Components/Joke";
 function App() {
+  const jokesData = [
+    {
+      id: 1,
+      setup: "Why don't scientists trust atoms?",
+      punchline: "Because they make up everything!", // ← Make sure this exists
+    },
+    {
+      id: 2,
+      setup: "What do you call a fake noodle?",
+      punchline: "An impasta!", // ← Make sure this exists
+    },
+  ];
+
   const images = [img1, img2];
   const [Ingredients, setIngredents] = React.useState([]);
   const IngredentsListItem = Ingredients.map((Ingredent) => (
@@ -48,6 +64,16 @@ function App() {
       <Counter />
       <Avatar />
       <SignUp />
+
+      {jokesData.map((joke) => (
+        <Joke
+          key={joke.id}
+          setup={joke.setup}
+          punchline={joke.punchline} // ← THIS LINE IS MISSING!
+        />
+      ))}
+
+      <UnreadMessage />
     </>
   );
 }
