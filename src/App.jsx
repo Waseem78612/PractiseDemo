@@ -9,6 +9,7 @@ import Avatar from "./Components/Avatar";
 import SignUp from "./Components/SignUp";
 import UnreadMessage from "./Components/UnreadMessage";
 import Joke from "./Components/Joke";
+import ChifClaude from "./Components/ChifClaude";
 function App() {
   const jokesData = [
     {
@@ -24,10 +25,6 @@ function App() {
   ];
 
   const images = [img1, img2];
-  const [Ingredients, setIngredents] = React.useState([]);
-  const IngredentsListItem = Ingredients.map((Ingredent) => (
-    <li key={Ingredent}>{Ingredent}</li>
-  ));
   const [myFavouriteThing, setMyFavouriteThing] = useState([]);
   const allFavouriteThings = ["Peach", "Watermellon", "Tomato"];
   const thingsElement = myFavouriteThing.map((thing) => (
@@ -39,28 +36,19 @@ function App() {
       allFavouriteThings[preFavThings.length],
     ]);
   }
-  function addIngredient(formData) {
-    const newIngredient = formData.get("ingredent");
-    setIngredents((prevIngredients) => [...prevIngredients, newIngredient]);
-    console.log(...newIngredient, newIngredient);
-  }
+
   return (
     <>
       <Header />
       <button onClick={addFavouriteThing}>AddItem</button>
       <section aria-live="polito">{thingsElement}</section>
 
-      <form action={addIngredient}>
-        <input type="text" name="ingredent" id="" />
-        <button className="addBtn">Add Ingredent</button>
-      </form>
-      <ul>{IngredentsListItem}</ul>
       <div className="gallery">
         {images.map((img, index) => (
           <img key={index} src={img} alt={`Gallery ${index + 1}`} />
         ))}
       </div>
-
+      <ChifClaude />
       <Counter />
       <Avatar />
       <SignUp />

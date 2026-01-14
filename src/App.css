@@ -33,7 +33,7 @@ main {
   max-height: max-content;
   width: 250px;
   position: absolute;
-  left: 10%;
+  right: 10%;
   bottom: 10%;
   background-color: rgb(81, 6, 91);
 }

@@ -1,16 +1,19 @@
 import React from "react";
 
 export default function UnreadMessage() {
-  const [UnreadMessage, setUnreadMessage] = React.useState(0);
-  function handleUnread() {
-    setUnreadMessage((prevVal) => (prevVal === 0 ? 1 : 0));
+  const [messages, setMessages] = React.useState(["one", "two", "three"]);
+  function changeText() {
+    if (messages === 0) {
+      return `You are all caught up`;
+    } else if (messages === 1) {
+      return `You have unread message`;
+    } else {
+      return `You have ${messages.length} message`;
+    }
   }
   return (
     <div>
-      {UnreadMessage !== 0 && <h1>You Have Unread Message</h1>}
-      {UnreadMessage === 0 && <p>You Have No Unread Message</p>}
-
-      <button onClick={handleUnread}>ChangeMessage</button>
+      <h1>{changeText()}</h1>
     </div>
   );
 }
