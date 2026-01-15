@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import img1 from "./images/avatar.jpg";
 export default function Avatar() {
@@ -9,7 +9,10 @@ export default function Avatar() {
     email: "Wa@gmail.com",
     isContact: false,
   });
-
+  const [isStarred,setIsStared]=useState(false)
+  const toggleStar=()=>{
+    setIsStared(prevVal=>!prevVal)
+  }
   return (
     <>
       .<h1>Avatar</h1>
@@ -18,8 +21,8 @@ export default function Avatar() {
           <div className="ImageSection">
             <img src={img1} alt="" />
           </div>
-          <div className="StarContainer">
-            <FaStar size={30} color="#FFFFFF" className="star" />
+          <div className="StarContainer" onClick={toggleStar}>
+            <FaStar size={30} color={isStarred ? "#FFD700" : "#FFFFFF"} className="star" />
           </div>
           <div className="DetailsSection">
             <h3 className="userName">
