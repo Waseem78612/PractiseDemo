@@ -9,18 +9,27 @@ import Avatar from "./Components/Avatar";
 import SignUp from "./Components/SignUp";
 import UnreadMessage from "./Components/UnreadMessage";
 import Joke from "./Components/Joke";
-import ChifClaude from "./Components/ChifClaude";
+
 function App() {
+  const [count, setCount] = useState(0);
+  function addValue() {
+    if (count >= 0 && count < 10) {
+      setCount(count + 1);
+    }
+  }
+  function removeValue() {
+    if (count > 0) setCount(count - 1);
+  }
   const jokesData = [
     {
       id: 1,
       setup: "Why don't scientists trust atoms?",
-      punchline: "Because they make up everything!", // ← Make sure this exists
+      punchline: "Because they make up everything!", 
     },
     {
       id: 2,
       setup: "What do you call a fake noodle?",
-      punchline: "An impasta!", // ← Make sure this exists
+      punchline: "An impasta!", 
     },
   ];
 
@@ -48,8 +57,18 @@ function App() {
           <img key={index} src={img} alt={`Gallery ${index + 1}`} />
         ))}
       </div>
-      <ChifClaude />
-      <Counter />
+      <div className="counterContainer">
+      <Counter number={count}/>
+        <h1>Counter</h1>
+        <button className="subBtn" onClick={removeValue}>
+          -
+        </button>
+        <button className="plusBtn" onClick={addValue}>
+          +
+        </button>
+        
+      </div>
+      
       <Avatar />
       <SignUp />
 
